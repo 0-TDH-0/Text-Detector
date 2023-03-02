@@ -9,7 +9,7 @@ from googletrans import Translator
 from time import sleep
 from picamera import PiCamera
 
-pytesseract.pytesseract.tesseract_cmd = 'Path/To/Tesseract' # TODO: Change to path
+pytesseract.pytesseract.tesseract_cmd = '/bin/tesseract' # TODO: Change to path
 
 # Declaring translator and Camera objects
 translator = Translator()
@@ -18,11 +18,11 @@ camera = PiCamera()
 # Using picamera, take and store a jpg for use later
 camera.start_preview()
 sleep(2)
-camera.capture('/home/pi/Desktop/input.jpg')
+camera.capture('/home/kat/Detect/input.jpg')
 camera.stop_preview()
 
 # Open previously mentioned image for text detection
-img = cv2.imread('/home/pi/Desktop/input.jpg')
+img = cv2.imread('/home/kat/Detect/input.jpg')
 
 # Converting image to grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
